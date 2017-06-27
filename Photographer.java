@@ -2,17 +2,17 @@ import java.util.ArrayList;
 
 public class Photographer {
 
-  private ArrayList<Camera> cameras;
+  private ArrayList<Printable> cameras;
 
   public Photographer() {
-    this.cameras = new ArrayList<Camera>();
+    this.cameras = new ArrayList<Printable>();
   }
 
   public int cameraCount() {
     return this.cameras.size();
   }
 
-  public void add(Camera camera) {
+  public void add(Printable camera) {
     this.cameras.add(camera);
   }
 
@@ -22,6 +22,14 @@ public class Photographer {
     }
     int index = cameraCount();
     this.cameras.remove(index - 1);
+  }
+
+  public String print() {
+    String cameraList = "";
+    for (Printable camera : cameras) {
+      cameraList = cameraList + camera.printDetails() + ", ";
+    }
+    return cameraList;
   }
 
 }

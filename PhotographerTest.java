@@ -16,28 +16,34 @@ public class PhotographerTest {
     dcamera = new DigitalCamera();
   }
 
-  @Test
-  public void canAddCamera() {
-    photographer.add(camera01);
-    assertEquals(1, photographer.cameraCount());
-  }
+  // @Test
+  // public void canAddCamera() {
+  //   photographer.add(camera01);
+  //   assertEquals(1, photographer.cameraCount());
+  // }
 
-  @Test
-  public void canRemoveCamera() {
-    photographer.add(camera01);
-    photographer.remove();
-    assertEquals(0, photographer.cameraCount());
-  }
+  // @Test
+  // public void canRemoveCamera() {
+  //   photographer.add(camera01);
+  //   photographer.remove();
+  //   assertEquals(0, photographer.cameraCount());
+  // }
 
   @Test
   public void analogCameraCanPrint() {
-    assertEquals("Nikon 34T, Noise reduction filter, Hi-resolution", acamera.printDetails());
+    assertEquals("Nikon 34T", acamera.printDetails());
   }
 
   @Test
   public void digitalCameraCanPrint() {
-    assertEquals("Sony ILCE5100L, No noise reduciton, Lo-resolution", dcamera.printDetails());
+    assertEquals("Sony ILCE5100L", dcamera.printDetails());
   }
 
+  @Test
+  public void photographerCanPrintAllCameras() {
+    photographer.add(acamera);
+    photographer.add(dcamera);
+    assertEquals("Nikon 34T, Sony ILCE5100L, ", photographer.print());
+  }
 
 }
