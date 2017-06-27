@@ -8,12 +8,20 @@ public class Photographer {
     this.cameras = new ArrayList<Camera>();
   }
 
+  public int cameraCount() {
+    return this.cameras.size();
+  }
+
   public void add(Camera camera) {
     this.cameras.add(camera);
   }
 
-  public int cameraCount() {
-    return cameras.size();
+  public void remove() {
+    if (cameraCount() < 1) {
+      return;
+    }
+    int index = cameraCount();
+    this.cameras.remove(index - 1);
   }
 
 }
