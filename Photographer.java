@@ -29,6 +29,7 @@ public class Photographer {
     for (Printable camera : cameras) {
       cameraList = cameraList + camera.printDetails() + ", ";
     }
+    cameraList = cameraList.substring(0, cameraList.length()-2);
     return cameraList;
   }
 

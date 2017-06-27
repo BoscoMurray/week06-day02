@@ -43,7 +43,7 @@ public class PhotographerTest {
   public void photographerCanPrintAllCameras() {
     photographer.add(acamera);
     photographer.add(dcamera);
-    assertEquals("Nikon 34T, Sony ILCE5100L, ", photographer.print());
+    assertEquals("Nikon 34T, Sony ILCE5100L", photographer.print());
   }
 
 }
