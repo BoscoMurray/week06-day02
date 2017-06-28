@@ -1,11 +1,14 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Photographer {
 
   private ArrayList<Printable> cameras;
+  private HashMap<String, Integer> journal;
 
   public Photographer() {
     this.cameras = new ArrayList<Printable>();
+    this.journal = new HashMap<String, Integer>();
   }
 
   public int cameraCount() {
@@ -24,13 +27,25 @@ public class Photographer {
     this.cameras.remove(index - 1);
   }
 
-  public String print() {
+  public String printCameras() {
     String cameraList = "";
     for (Printable camera : cameras) {
-      cameraList = cameraList + camera.printDetails() + ", ";
+      cameraList = cameraList + camera.printDetails() + " & ";
     }
-    cameraList = cameraList.substring(0, cameraList.length()-2);
+    cameraList = cameraList.substring(0, cameraList.length()-3);
     return cameraList;
+  }
+
+  public void addToJournal(String date, Integer quantity) {
+    journal.put("date", quantity);
+  }
+
+  public int numberOfPhotos() {
+    int numberOfPhotos = 0;
+    for (int value : journal.values()) {
+      numberOfPhotos += value;
+    }
+    return numberOfPhotos;
   }
 
 }
